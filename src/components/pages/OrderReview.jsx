@@ -11,7 +11,7 @@ const OrderReview = ({ cart, handleDelete }) => {
                 <h3 key={el.id} className="font-bold text-xl text-violet-500">
                     {el.name}
                     <span className="btn cursor-pointer" onClick={() => handleDeleted(el.id)}>
-                        Delete
+                        X
                     </span>
                 </h3>
             ))}
