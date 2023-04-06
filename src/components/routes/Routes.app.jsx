@@ -15,7 +15,7 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: async () => fetch('https://raw.githubusercontent.com/ProgrammingHero1/t-shirt-data/main/tshirt.json')
+                loader: async () => fetch('data.json')
             },
             {
                 path: '/order-review',
