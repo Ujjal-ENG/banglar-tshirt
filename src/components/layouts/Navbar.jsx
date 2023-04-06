@@ -4,37 +4,17 @@ import { NavLink } from 'react-router-dom';
 const Navbar = () => {
     return (
         <>
-            <ul
-                style={{
-                    backgroundColor: 'rebeccapurple',
-                    padding: '10px'
-                }}>
-                <NavLink className={({ isActive, isPending }) => (isActive ? 'text-xl font-bold bg-orange-600' : isPending ? console.log('pending') : '')}></NavLink>
-                <NavLink
-                    to="/about"
-                    style={{
-                        margin: '0px 20px 0px 20px',
-                        color: 'white',
-                        fontWeight: 'bold'
-                    }}>
+            <ul className="flex justify-center items-center gap-16 bg-violet-500 p-3 font-bold text-2xl">
+                <NavLink to="/order-review" className={({ isActive }) => (isActive ? 'active' : 'default')}>
+                    OrderReview
+                </NavLink>
+                <NavLink to="/about" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     About
                 </NavLink>
-                <NavLink
-                    to="/contact-us"
-                    style={{
-                        margin: '0px 20px 0px 20px',
-                        color: 'white',
-                        fontWeight: 'bold'
-                    }}>
+                <NavLink to="/contact-us" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     Contact Us
                 </NavLink>
-                <NavLink
-                    to="/users"
-                    style={{
-                        margin: '0px 20px 0px 20px',
-                        color: 'white',
-                        fontWeight: 'bold'
-                    }}>
+                <NavLink to="/users" className={({ isActive }) => (isActive ? 'active' : 'default')}>
                     Users
                 </NavLink>
             </ul>
