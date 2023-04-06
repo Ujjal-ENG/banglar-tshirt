@@ -15,7 +15,12 @@ const Home = () => {
             setCart([...cart, { name: name, id: id }]);
         }
     };
-    console.log(cart);
+
+    const handleDelete = (id) => {
+        const filterData = cart.filter((el) => el.id !== id);
+        setCart(filterData);
+    };
+
     return (
         <div className="grid grid-cols-12 justify-items-center gap-4">
             <div className="col-span-10 grid grid-cols-3 gap-4">
@@ -25,7 +30,7 @@ const Home = () => {
             </div>
 
             <div className="mt-14">
-                <OrderReview cart={cart} />
+                <OrderReview cart={cart} handleDelete={handleDelete} />
             </div>
         </div>
     );
