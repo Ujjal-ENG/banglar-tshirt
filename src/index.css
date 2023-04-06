@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    .btn {
+        @apply inline-flex items-center h-12 px-6 mb-3 font-medium text-white transition duration-200 rounded shadow-md  md:mb-0 bg-blue-400 hover:bg-blue-700;
+    }
+}
+
 .active {
     @apply tracking-wide text-white font-bold transition-colors duration-200 hover:text-gray-400;
 }
