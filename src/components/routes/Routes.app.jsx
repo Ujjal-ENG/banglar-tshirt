@@ -3,9 +3,9 @@ import App from '../../App';
 import About from '../pages/About';
 import ContactUs from '../pages/ContactUs';
 import Home from '../pages/Home';
+import OrderReview from '../pages/OrderReview';
 import UserDetails from '../pages/UserDetails';
 import Users from '../pages/Users';
-import OrderReview from '../pages/OrderReview';
 
 export const router = createBrowserRouter([
     {
@@ -14,7 +14,8 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+                element: <Home />,
+                loader: async () => fetch('https://raw.githubusercontent.com/ProgrammingHero1/t-shirt-data/main/tshirt.json')
             },
             {
                 path: '/order-review',
