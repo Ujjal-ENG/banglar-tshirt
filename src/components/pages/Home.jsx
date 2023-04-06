@@ -7,8 +7,13 @@ const Home = () => {
     const data = useLoaderData();
     const [cart, setCart] = useState([]);
 
-    const handleAddtoCart = (id) => {
-        setCart([...cart, id]);
+    const handleAddtoCart = (id, name) => {
+        const existsId = cart.find((el) => el.id === id);
+        if (existsId) {
+            alert('Already Added this products');
+        } else {
+            setCart([...cart, { name: name, id: id }]);
+        }
     };
     console.log(cart);
     return (
@@ -20,7 +25,7 @@ const Home = () => {
             </div>
 
             <div className="mt-14">
-                <OrderReview />
+                <OrderReview cart={cart} />
             </div>
         </div>
     );
