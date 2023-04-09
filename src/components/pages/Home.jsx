@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { addTOLocalStorage } from '../fakeDB/localStorage';
 import HomeData from './HomeData';
 import OrderReview from './OrderReview';
 
@@ -9,8 +10,9 @@ const Home = () => {
 
     const handleAddtoCart = (id, name) => {
         const existsId = cart.find((el) => el.id === id);
+        addTOLocalStorage(id);
         if (existsId) {
-            alert('Already Added this products');
+            console.log('items added');
         } else {
             setCart([...cart, { name: name, id: id }]);
         }
