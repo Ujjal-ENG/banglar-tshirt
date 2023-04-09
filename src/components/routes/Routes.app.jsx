@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from '../../App';
+import { loadersData } from '../loaders/loadersData';
 import About from '../pages/About';
 import ContactUs from '../pages/ContactUs';
 import Home from '../pages/Home';
@@ -15,7 +16,7 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home />,
-                loader: async () => fetch('data.json')
+                loader: loadersData
             },
             {
                 path: '/order-review',

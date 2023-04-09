@@ -1,12 +1,19 @@
-import { Link, Outlet } from 'react-router-dom';
+import { createContext } from 'react';
+import { Link, Outlet, useLoaderData } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/layouts/Navbar';
 
+export const TshirtData = createContext([]);
+
 function App() {
+    const [data, cartData] = useLoaderData();
+    console.log(data);
     return (
         <div className="app">
             <Navbar />
-            <Outlet />
+            <TshirtData.Provider>
+                <Outlet />
+            </TshirtData.Provider>
             <Link
                 to="/"
                 style={{

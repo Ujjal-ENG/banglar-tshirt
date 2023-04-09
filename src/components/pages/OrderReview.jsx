@@ -1,9 +1,11 @@
 import React from 'react';
+import { getLocalStorageData } from '../fakeDB/localStorage';
 
 const OrderReview = ({ cart, handleDelete }) => {
     const handleDeleted = (id) => {
         handleDelete(id);
     };
+
     return (
         <div className=" text-center space-y-4 space-x-3">
             <span className="text-3xl font-bold text-orange-500">Order Summary: {cart.length}</span>

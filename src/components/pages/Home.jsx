@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
 import { addTOLocalStorage } from '../fakeDB/localStorage';
 import HomeData from './HomeData';
 import OrderReview from './OrderReview';
 
 const Home = () => {
-    const data = useLoaderData();
+    // const data = useLoaderData();
+    // const contextData = useContext();
+    // console.log(contextData);
     const [cart, setCart] = useState([]);
 
     const handleAddtoCart = (id, name) => {
