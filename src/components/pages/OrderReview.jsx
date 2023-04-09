@@ -1,5 +1,4 @@
 import React from 'react';
-import { getLocalStorageData } from '../fakeDB/localStorage';
 
 const OrderReview = ({ cart, handleDelete }) => {
     const handleDeleted = (id) => {
@@ -15,7 +14,7 @@ const OrderReview = ({ cart, handleDelete }) => {
             ) : (
                 <>
                     {cart.map((el) => (
-                        <h3 key={el.id} className="font-bold text-xl text-violet-500">
+                        <h3 key={el._id} className="font-bold text-xl text-violet-500">
                             {el.name}
                             <span className="btn ml-5 cursor-pointer" onClick={() => handleDeleted(el.id)}>
                                 X

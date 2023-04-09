@@ -7,11 +7,11 @@ export const TshirtData = createContext([]);
 
 function App() {
     const [data, cartData] = useLoaderData();
-    console.log(data);
+
     return (
         <div className="app">
             <Navbar />
-            <TshirtData.Provider>
+            <TshirtData.Provider value={[data, cartData]}>
                 <Outlet />
             </TshirtData.Provider>
             <Link

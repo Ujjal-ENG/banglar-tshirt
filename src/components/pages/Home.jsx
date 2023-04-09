@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { TshirtData } from '../../App';
 import { addTOLocalStorage } from '../fakeDB/localStorage';
 import HomeData from './HomeData';
 import OrderReview from './OrderReview';
 
 const Home = () => {
-    // const data = useLoaderData();
-    // const contextData = useContext();
-    // console.log(contextData);
-    const [cart, setCart] = useState([]);
+    const [data, cartData] = useContext(TshirtData);
+    const [cart, setCart] = useState(cartData || []);
 
     const handleAddtoCart = (id, name) => {
         const existsId = cart.find((el) => el.id === id);
