@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { TshirtData } from '../../App';
-import { addTOLocalStorage } from '../fakeDB/localStorage';
+import { addTOLocalStorage, removeLocalStorageDataByID } from '../fakeDB/localStorage';
 import HomeData from './HomeData';
 import OrderReview from './OrderReview';
 
@@ -8,19 +8,23 @@ const Home = () => {
     const [data, cartData] = useContext(TshirtData);
     const [cart, setCart] = useState(cartData || []);
 
-    const handleAddtoCart = (id, name) => {
-        const existsId = cart.find((el) => el.id === id);
+    const handleAddtoCart = (id) => {
+        const existsId = cart.find((el) => el._id === id);
         addTOLocalStorage(id);
-        if (existsId) {
-            console.log('items added');
+
+        if (!existsId) {
+            const newData = data.find((el) => el._id === id);
+            setCart([...cart, newData]);
         } else {
-            setCart([...cart, { name: name, id: id }]);
+            console.log('Item already exists in the cart');
         }
     };
 
     const handleDelete = (id) => {
-        const filterData = cart.filter((el) => el.id !== id);
+        removeLocalStorageDataByID(id);
+        const filterData = cart.filter((el) => el._id !== id);
         setCart(filterData);
+        console.log(id);
     };
 
     return (

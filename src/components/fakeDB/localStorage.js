@@ -21,7 +21,14 @@ export const addTOLocalStorage = id => {
 }
 
 export const removeLocalStorageDataByID = id => {
-  
+  const existingProduct = JSON.parse(localStorage.getItem("cart-items"))
+  if (existingProduct) {
+    if (id in existingProduct) {
+      delete existingProduct[id]
+    }
+    localStorage.setItem("cart-items",JSON.stringify(existingProduct))
+  }
+
 }
 
 export const getLocalStorageData = () => {

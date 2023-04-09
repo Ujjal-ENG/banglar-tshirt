@@ -8,6 +8,5 @@ export const loadersData = async () => {
       el._id === i)
     cartData.push(findData)
   }
-  console.log(cartData)
   return [data, cartData]
 }
